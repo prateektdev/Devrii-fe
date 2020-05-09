@@ -1,0 +1,14 @@
+li.borderless {
+  border-top: 0 none;
+}
+
+.list-group-item {
+  background-color: #131946;
+  color: white;
+  border: 0 none !important;
+}
+
+.logoImage {
+  margin-top: 10px;
+  border-radius: 5px;
+}

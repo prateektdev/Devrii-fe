@@ -1,3 +1,31 @@
-.thead-new{
-  background-color:#4472c4;
+.thead-new {
+  background-color: #4472c4;
 }
+
+.logoName {
+  margin-top: 10px;
+  color: #4472c4;
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 0px;
+}
+
+.text-default {
+  color: #4472c4;
+}
+
+.pageHeading {
+  margin-top: 28px;
+}
+
+.list-group-item.fa {
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+/* mat-sidenav {
+  background-color: #131946;
+} */
