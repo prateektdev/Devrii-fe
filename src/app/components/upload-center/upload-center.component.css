@@ -1,0 +1,30 @@
+.customBox {
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.profileImg {
+  width: 50px;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+}
+
+.docName {
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.customBadge {
+  background: blue;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 40px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  top: 2px;
+}

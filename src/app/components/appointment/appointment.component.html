@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<mat-sidenav-container id="matSidenavContainer">
+    <mat-sidenav id="sidebar" [(opened)]="opened">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content id="matSidenavContainer">
+        <button (click)="opened=!opened" mat-icon-button color="primary"
+            aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="container">
+            <div class="col-md-12">
+                <h3 class="text-center">Appointments</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table mb-3" style="margin-top: 20px;">
+                            <thead class="thead-new">
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Provider</th>
+                                    <th scope="col">Approve</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>05/05/2020</th>
+                                    <td>12:45 PM</td>
+                                    <td>Dr.K</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-success">Approve</button>
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-info">Sign in..</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>05/05/2020</th>
+                                    <td>12:45 PM</td>
+                                    <td>Dr.K</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-success">Approve</button>
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-info">Sign in..</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>05/05/2020</th>
+                                    <td>12:45 PM</td>
+                                    <td>Dr.K</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-success">Approve</button>
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-info">Sign in..</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

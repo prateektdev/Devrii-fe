@@ -15,6 +15,14 @@ body {
   background-color: #131946;
 }
 
+#matSidenavContainer {
+  min-height: 95vh;
+}
+
 .mat-drawer-content.mat-sidenav-content {
   background: #ebf2fe;
+}
+
+.thead-new {
+  background-color: #4472c4;
 }

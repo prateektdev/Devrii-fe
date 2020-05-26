@@ -13,6 +13,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { DocumentsComponent } from './components/documents/documents.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { AppointmentComponent } from './components/appointment/appointment.component';
+import { UploadCenterComponent } from './components/upload-center/upload-center.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     NavbarComponent,
     SidebarComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    DocumentsComponent,
+    MessagesComponent,
+    AppointmentComponent,
+    UploadCenterComponent
   ],
   imports: [
     BrowserModule,

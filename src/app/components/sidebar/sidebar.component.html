@@ -1,8 +1,28 @@
 <div class="col-md-12">
     <div class="col-md-12">
         <img class="logoImage" src="../../../assets/images/logo-1.webp" style="height: 65px;" alt="logo image" />
-        <ul class="list-group">
-            <li class="list-group-item text-center borderless">
+        <ul class="list-group mt-3">
+            <li class="list-group-item text-center" [routerLink]="['/home']">
+                <i class="fa fa-home fa-2x" aria-hidden="true"></i><br>
+                Home
+            </li>
+            <li class="list-group-item text-center" [routerLink]="['/documents']">
+                <i class="fa fa-file-text fa-2x" aria-hidden="true"></i><br>
+                Documents
+            </li>
+            <li class="list-group-item text-center" [routerLink]="['/upload-center']">
+                <i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i><br>
+                Upload Center
+            </li>
+            <li class="list-group-item text-center" [routerLink]="['/messages']">
+                <i class="fa fa-envelope fa-2x" aria-hidden="true"></i><br>
+                Messages
+            </li>
+            <li class="list-group-item text-center" [routerLink]="['/appointment']">
+                <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><br>
+                Appointments
+            </li>
+            <!-- <li class="list-group-item text-center borderless">
                 <i class="fa fa-user fa-2x" aria-hidden="true"></i><br>
                 Providers
             </li>
@@ -23,10 +43,6 @@
                 Invite
             </li>
             <li class="list-group-item text-center">
-                <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><br>
-                Appointments
-            </li>
-            <li class="list-group-item text-center">
                 <i class="fa fa-pencil fa-2x" aria-hidden="true"></i><br>
                 E-sign
             </li>
@@ -37,7 +53,7 @@
             <li class="list-group-item text-center">
                 <i class="fa fa-commenting fa-2x" aria-hidden="true"></i><br>
                 SMS
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

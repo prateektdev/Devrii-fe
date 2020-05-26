@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<mat-sidenav-container id="matSidenavContainer">
+    <mat-sidenav id="sidebar" [(opened)]="opened">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content id="matSidenavContainer">
+        <button (click)="opened=!opened" mat-icon-button color="primary"
+            aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="container">
+            <div class="col-md-12">
+                <h3 class="text-center">New Messages</h3>
+                <div class="col-md-12">
+                    <table class="table mb-3" style="margin-top: 26px;">
+                        <thead class="thead-new">
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Form</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>05/05/2020</th>
+                                <td>Dr.K</td>
+                                <td>Test</td>
+                                <td class="text-center">
+                                    <button class="btn btn-success">Approve</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05/05/2020</th>
+                                <td>Dr.J</td>
+                                <td>X-ray</td>
+                                <td class="text-center">
+                                    <button class="btn btn-success">Approve</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>05/05/2020</th>
+                                <td>Dr.N</td>
+                                <td>DNA/RNA</td>
+                                <td class="text-center">
+                                    <button class="btn btn-success">Approve</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

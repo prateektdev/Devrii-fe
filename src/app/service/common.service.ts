@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-declare var $: any;
+declare const $: any;
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,10 @@ export class CommonService {
 
   toggleClass(cssClass: string, action: string) {
     if (action === 'add') {
+      $('html').addClass(cssClass);
       $('body').addClass(cssClass);
     } else {
+      $('html').addClass(cssClass);
       $('body').removeClass(cssClass);
     }
   }
