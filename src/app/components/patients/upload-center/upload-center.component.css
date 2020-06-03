@@ -1,0 +1,44 @@
+.customBox {
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.profileImg {
+  width: 45px !important;
+  height: 45px !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  object-fit: cover;
+}
+
+.docName {
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.customBadge {
+  background: blue;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 58px;
+  border-radius: 50%;
+  color: white;
+  top: 2px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.circle {
+  background: #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

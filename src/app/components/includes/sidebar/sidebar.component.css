@@ -1,0 +1,15 @@
+li.borderless {
+  border-top: 0 none;
+}
+
+.sidenav {
+  background-color: #131946;
+  color: white;
+  border: 0 none !important;
+  cursor: pointer;
+}
+
+.logoImage {
+  margin-top: 10px;
+  border-radius: 5px;
+}

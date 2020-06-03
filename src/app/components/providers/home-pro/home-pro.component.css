@@ -1,0 +1,11 @@
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #4472c4 !important;
+  border-color: #4472c4 !important;
+}
+
+.text-italic {
+  font-style: italic;
+  cursor: pointer;
+}

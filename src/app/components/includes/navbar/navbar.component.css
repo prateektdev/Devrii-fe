@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #337ab7 !important;
+  color: white !important;
+  padding-top: 15px;
+  padding-bottom: 18px;
+}
+
+#searchInput {
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
+
+#searchInputDiv {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.dropdown-toggle:after {
+  border: none;
+}
+
+#userImage {
+  height: 35px;
+  width: 35px;
+  object-fit: cover;
+}

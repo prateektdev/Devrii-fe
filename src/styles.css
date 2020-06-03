@@ -26,3 +26,7 @@ body {
 .thead-new {
   background-color: #4472c4;
 }
+
+#staticEmail {
+  padding-left: 5px;
+}
