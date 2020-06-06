@@ -11,6 +11,7 @@ import { HomeProComponent } from '../components/providers/home-pro/home-pro.comp
 import { PatientsComponent } from '../components/providers/patients/patients.component';
 import { TeamComponent } from '../components/providers/team/team.component';
 import { InviteComponent } from '../components/providers/invite/invite.component';
+import { EsignComponent } from '../components/providers/esign/esign.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,10 +22,12 @@ const routes: Routes = [
   { path: 'patient/messages', component: MessagesComponent },
   { path: 'patient/appointment', component: AppointmentComponent },
   { path: 'patient/upload-center', component: UploadCenterComponent },
+  { path: 'providers/', component: HomeProComponent },
   { path: 'providers/home', component: HomeProComponent },
   { path: 'providers/patient', component: PatientsComponent },
   { path: 'providers/team', component: TeamComponent },
   { path: 'providers/invite', component: InviteComponent },
+  { path: 'providers/e-sign', component: EsignComponent },
 ];
 
 @NgModule({

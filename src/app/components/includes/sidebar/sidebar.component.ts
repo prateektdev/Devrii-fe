@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
     { text: "Team", link: ['/providers/team'], class: "fa-users", type: "providers" },
     { text: "Lab", link: ['/'], class: "fa-thermometer-empty", type: "providers" },
     { text: "Invite", link: ['/providers/invite'], class: "fa-user-plus", type: "providers" },
-    { text: "E-sign", link: ['/'], class: "fa-pencil", type: "providers" },
+    { text: "E-sign", link: ['/providers/e-sign'], class: "fa-pencil", type: "providers" },
     { text: "E-fax", link: ['/'], class: "fa-fax", type: "providers" },
     { text: "SMS", link: ['/'], class: "fa-commenting", type: "providers" },
   ]

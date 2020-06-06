@@ -22,6 +22,7 @@ import { HomeProComponent } from './components/providers/home-pro/home-pro.compo
 import { PatientsComponent } from './components/providers/patients/patients.component';
 import { TeamComponent } from './components/providers/team/team.component';
 import { InviteComponent } from './components/providers/invite/invite.component';
+import { EsignComponent } from './components/providers/esign/esign.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { InviteComponent } from './components/providers/invite/invite.component'
     HomeProComponent,
     PatientsComponent,
     TeamComponent,
-    InviteComponent
+    InviteComponent,
+    EsignComponent
   ],
   imports: [
     BrowserModule,

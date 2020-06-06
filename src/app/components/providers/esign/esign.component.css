@@ -1,0 +1,34 @@
+@media only screen and (max-width: 432px) {
+  #reqBtn {
+    margin-bottom: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  #firstBox {
+    margin: 0 auto !important;
+  }
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.fileImage {
+  height: 130px;
+  width: 130px;
+}
+
+.box {
+  height: 100px;
+  border: 1px solid #d9cece;
+  padding: 5px;
+  width: 130px;
+  border-radius: 5px;
+  background: white;
+  text-align: center;
+  font-size: 12px;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
