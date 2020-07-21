@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { CommonService } from 'src/app/service/common.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-home-pro',
@@ -8,7 +10,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class HomeProComponent implements OnInit {
 
-  constructor() { }
+  constructor(private common: CommonService, private api: ApiService) { }
 
   public calendarPlugins = [dayGridPlugin]; // important!
   public opened = false;
@@ -19,6 +21,7 @@ export class HomeProComponent implements OnInit {
     { date: '08/05/2020', time: '01:33 PM', patient: 'Steve Rogers', note: 'Test note 4' },
     { date: '09/05/2020', time: '01:34 PM', patient: 'Bruce Wayne', note: 'Test note 5' },
     { date: '10/05/2020', time: '01:35 PM', patient: 'Clark Kent', note: 'Test note 6' },
+    { date: '10/05/2020', time: '01:36 PM', patient: 'Client Barten', note: 'Test note 7' },
   ];
 
   public title = 'angulardatatables';
@@ -28,9 +31,13 @@ export class HomeProComponent implements OnInit {
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 6,
       processing: true
     };
+  }
+
+  openModel(el: string) {
+    this.common.toggleModel(el);
   }
 
 }

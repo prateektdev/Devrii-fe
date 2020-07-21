@@ -17,14 +17,15 @@ export class SidebarComponent implements OnInit {
     { text: "Upload Center", link: ['/patient/upload-center'], class: "fa-cloud-upload", type: "patients" },
     { text: "Messages", link: ['/patient/messages'], class: "fa-envelope", type: "patients" },
     { text: "Appointments", link: ['/patient/appointment'], class: "fa-calendar", type: "patients" },
-    { text: "Providers", link: ['/providers/home'], class: "fa-user", type: "providers" },
+    { text: "Providers", link: ['/providers/dashboard'], class: "fa-user", type: "providers" },
     { text: "Patients", link: ['/providers/patient'], class: "fa-male", type: "providers" },
     { text: "Team", link: ['/providers/team'], class: "fa-users", type: "providers" },
-    { text: "Lab", link: ['/'], class: "fa-thermometer-empty", type: "providers" },
+    { text: "Lab", link: ['/coming-soon'], class: "fa-thermometer-empty", type: "providers" },
     { text: "Invite", link: ['/providers/invite'], class: "fa-user-plus", type: "providers" },
     { text: "E-sign", link: ['/providers/e-sign'], class: "fa-pencil", type: "providers" },
-    { text: "E-fax", link: ['/'], class: "fa-fax", type: "providers" },
-    { text: "SMS", link: ['/'], class: "fa-commenting", type: "providers" },
+    { text: "E-fax", link: ['/coming-soon'], class: "fa-fax", type: "providers" },
+    { text: "SMS", link: ['/coming-soon'], class: "fa-commenting", type: "providers" },
+    { text: "Home", link: ['/labs/home'], class: "fa-home", type: "labs" },
   ]
 
   ngOnInit() {

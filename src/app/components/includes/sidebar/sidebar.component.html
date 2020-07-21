@@ -1,45 +1,27 @@
 <div class="col-md-12">
-    <div class="col-md-12">
-        <img class="logoImage" src="../../../assets/images/logo-1.webp" style="height: 65px;" alt="logo image" />
-        <ul class="list-group mt-3">
-            <ng-container *ngFor="let li of links">
-                <li class="list-group-item text-center sidenav" [routerLink]="li.link">
-                    <i class="fa fa-2x {{li.class}}" aria-hidden="true"></i><br>
-                    {{li.text}}
-                </li>
-            </ng-container>
-            <!-- <li class="list-group-item text-center borderless">
-                <i class="fa fa-user fa-2x" aria-hidden="true"></i><br>
-                Providers
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-male fa-2x" aria-hidden="true"></i><br>
-                Patients
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-users fa-2x" aria-hidden="true"></i><br>
-                Team
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-thermometer-empty fa-2x" aria-hidden="true"></i><br>
-                Lab
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i><br>
-                Invite
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-pencil fa-2x" aria-hidden="true"></i><br>
-                E-sign
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-fax fa-2x" aria-hidden="true"></i><br>
-                E-fax
-            </li>
-            <li class="list-group-item text-center">
-                <i class="fa fa-commenting fa-2x" aria-hidden="true"></i><br>
-                SMS
-            </li> -->
-        </ul>
-    </div>
+  <div class="col-md-12">
+    <img class="logoImage" src="../../../assets/images/logo-1.webp" alt="logo image" />
+    <ul class="list-group mt-3">
+      <ng-container *ngFor="let li of links">
+        <li class="list-group-item text-center sidenav" [routerLink]="li.link">
+          <i class="fa fa-2x {{li.class}}" aria-hidden="true"></i><br>
+          {{li.text}}
+        </li>
+      </ng-container>
+    </ul>
+  </div>
 </div>
+
+
+<!--
+  prateek.trivedi.25@gmail.com
+  ptrivedi@123
+-->
+<!--
+export ANDROID_HOME="/home/mayur/android-sdk"
+export PATH="${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+ -->
+<!-- 
+export ANDROID_HOME="/home/prateek/Android/Sdk"
+export PATH="${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+ -->

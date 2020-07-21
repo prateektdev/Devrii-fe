@@ -1,50 +1,53 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand text-white" href="#">Devri<i>i</i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="navbar-brand text-white" href="#">Devri<i>i</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link text-white" href="#">About <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Contact</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Service Plans</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" (click)="showDropDown()" id="navbarDropdown"
-                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle" id="userImage" src="../../../assets/images/user.png" alt="">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="fa fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Sign-up
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa fa-sign-in fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Login
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Settings
-                    </a>
-                </div>
-            </li>
-        </ul>
-        <form class="form-inline">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white" [routerLink]="['/coming-soon']">About <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white" [routerLink]="['/coming-soon']">Contact</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white" [routerLink]="['/coming-soon']">Service Plans</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white" [routerLink]="['/providers/home']">Providers</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" (click)="showDropDown()" id="navbarDropdown"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="rounded-circle" id="userImage" src="../../../assets/images/user.png" alt="">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
+            Sign-up
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-sign-in fa-sm fa-fw mr-2 text-gray-400"></i>
+            Login
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
+            Settings
+          </a>
+        </div>
+      </li>
+    </ul>
+    <!-- <form class="form-inline">
             <div class="input-group">
                 <input type="text" class="form-control" id="searchInput" placeholder="Search" aria-label="Username"
                     aria-describedby="basic-addon1">
@@ -54,6 +57,6 @@
                     </span>
                 </div>
             </div>
-        </form>
-    </div>
+        </form> -->
+  </div>
 </nav>

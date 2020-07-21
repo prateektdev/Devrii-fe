@@ -1,79 +1,203 @@
 <div class="fullPage">
-    <div class="container">
-        <div class="col-md-6 mt-3 pb-3 mr-auto ml-auto">
-            <div class="login-wrapper crypto">
+  <div class="container">
+    <div class="col-md-6 mt-3 pb-3 mr-auto ml-auto">
+      <div class="login-wrapper crypto">
 
-                <div class="col-md-12 col-sm-12">
-                    <div id="login" class="login loginpage mt-0 no-pl no-pr pt-2">
-                        <div class="login-form-header flex align-items-center">
-                            <img src="assets/images/signup.png" alt="login-icon" style="max-width:64px">
-                            <div class="login-header">
-                                <h4 class="bold">Signup Now!</h4>
-                                <h4><small>Enter your data to register.</small></h4>
-                            </div>
-                        </div>
-
-                        <div class="box login">
-
-                            <div class="content-body" style="padding-top:12px">
-
-                                <form id="msg_validate" action="#" novalidate="novalidate" class="no-mb no-mt">
-                                    <div class="row">
-                                        <div class="col-md-12">
-
-                                            <div class="form-group">
-                                                <label class="form-label">First name</label>
-                                                <div class="controls">
-                                                    <input type="text" class="form-control" name="formfield2"
-                                                        placeholder="enter firstname">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Last name</label>
-                                                <div class="controls">
-                                                    <input type="text" class="form-control" name="formfield2"
-                                                        placeholder="enter lastname">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Email</label>
-                                                <div class="controls">
-                                                    <input type="text" class="form-control" name="formfield1"
-                                                        placeholder="enter email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Password</label>
-                                                <div class="controls">
-                                                    <input type="password" class="form-control" name="formfield2"
-                                                        placeholder="enter password">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Repeat Password</label>
-                                                <div class="controls">
-                                                    <input type="password" class="form-control" name="formfield1"
-                                                        placeholder="repeat password">
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-
-                                                <a class="btn btn-primary btn-login">Sign
-                                                    up</a>
-                                                <!-- [routerLink]="['/login']" -->
-                                                <a class="btn btn-primary btn-login" [routerLink]="['/login']">Log
-                                                    in</a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+        <div class="col-md-12 col-sm-12">
+          <div id="login" class="login loginpage mt-0 no-pl no-pr pt-2">
+            <div class="login-form-header flex align-items-center">
+              <img src="assets/images/signup.png" alt="login-icon" style="max-width:64px">
+              <div class="login-header">
+                <h4 class="bold">Signup Now!</h4>
+                <h4><small>Enter your data to register.</small></h4>
+              </div>
             </div>
+
+            <div class="box login">
+
+              <div class="content-body" style="padding-top:12px">
+
+                <form id="msg_validate" (ngSubmit)="signUp(signUpForm)" #signUpForm="ngForm" novalidate="novalidate"
+                  class="no-mb no-mt">
+                  <div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">First name</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="FirstName" placeholder="Enter firstname"
+                              [(ngModel)]="modal.FirstName" #FirstName="ngModel" required>
+                          </div>
+                          <div *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="FirstName.errors.required">first name
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Last name</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="LastName" placeholder="enter lastname"
+                              [(ngModel)]="modal.LastName" #LastName="ngModel" required>
+                          </div>
+                          <div *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="LastName.errors.required">last name
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Email</label>
+                          <div class="controls">
+                            <input type="email" class="form-control" name="Email" placeholder="enter email"
+                              [(ngModel)]="modal.Email" #Email="ngModel" required>
+                          </div>
+                          <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="Email.errors.required">email
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Bussiness License</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="BusinessLicense"
+                              placeholder="enter business license" [(ngModel)]="modal.BusinessLicense"
+                              #BusinessLicense="ngModel" required>
+                          </div>
+                          <div *ngIf="BusinessLicense.invalid && (BusinessLicense.dirty || BusinessLicense.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="BusinessLicense.errors.required">business license
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Password</label>
+                          <div class="controls">
+                            <input type="password" class="form-control" name="Password" placeholder="enter password"
+                              [(ngModel)]="modal.Password" #Password="ngModel" required>
+                          </div>
+                          <div *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="Password.errors.required">password
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Confirm Password</label>
+                          <div class="controls">
+                            <input type="password" class="form-control" name="ConfirmPassword"
+                              placeholder="confirm password" [(ngModel)]="modal.ConfirmPassword"
+                              #ConfirmPassword="ngModel" required pattern="{{ Password.value }}">
+                          </div>
+                          <div *ngIf="ConfirmPassword.invalid && (ConfirmPassword.dirty || ConfirmPassword.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="ConfirmPassword.errors.required">confirm password
+                              is
+                              required.</div>
+                            <div class="loginErrors pl-0" *ngIf="ConfirmPassword.errors.pattern">password & confirm
+                              password does not match.
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Bussiness name</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="BusinessName"
+                              placeholder="enter business name" [(ngModel)]="modal.BusinessName" #BusinessName="ngModel"
+                              required>
+                          </div>
+                          <div *ngIf="BusinessName.invalid && (BusinessName.dirty || BusinessName.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="ConfirmPassword.errors.required">business name
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">DBA Branch name</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="Branch_DBAName"
+                              placeholder="enter branch dba name" [(ngModel)]="modal.Branch_DBAName"
+                              #Branch_DBAName="ngModel" required>
+                          </div>
+                          <div *ngIf="Branch_DBAName.invalid && (Branch_DBAName.dirty || Branch_DBAName.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="Branch_DBAName.errors.required">branch dba name
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Bussiness Plan</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="BusinessPlan"
+                              placeholder="enter business plan" [(ngModel)]="modal.BusinessPlan" #BusinessPlan="ngModel"
+                              required>
+                          </div>
+                          <div *ngIf="BusinessPlan.invalid && (BusinessPlan.dirty || BusinessPlan.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="BusinessPlan.errors.required">branch plan
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                          <label class="form-label">Promo Code</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" name="PromoCode" placeholder="enter promo code"
+                              [(ngModel)]="modal.PromoCode" #PromoCode="ngModel" required>
+                          </div>
+                          <div *ngIf="PromoCode.invalid && (PromoCode.dirty || PromoCode.touched)"
+                            class="required mt-0">
+                            <div class="loginErrors pl-0" *ngIf="PromoCode.errors.required">promo code
+                              is
+                              required.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-check mb-2">
+                        <input type="checkbox" (click)="agreeToTerms()" class="form-check-input" id="AgreeToTerm">
+                        <label class="form-check-label" for="AgreeToTerm">Agree To Terms</label>
+                      </div>
+
+                      <div class="text-center">
+
+                        <button class="btn btn-primary btn-login" type="submit" [disabled]="!signUpForm.form.valid">
+                          Sign up
+                        </button>
+                        <button class="btn btn-primary btn-login" [routerLink]="['/login']">Log
+                          in</button>
+
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
