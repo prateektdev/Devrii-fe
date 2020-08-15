@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { CommonService } from 'src/app/service/common.service';
 import { ApiService } from 'src/app/service/api.service';
+import { ProviderApiService } from 'src/app/service/new-apis/provider-api.service';
 
 @Component({
   selector: 'app-home-pro',
@@ -10,7 +11,7 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class HomeProComponent implements OnInit {
 
-  constructor(private common: CommonService, private api: ApiService) { }
+  constructor(private common: CommonService, private api: ApiService, private provider: ProviderApiService) { }
 
   public calendarPlugins = [dayGridPlugin]; // important!
   public opened = false;
@@ -34,6 +35,14 @@ export class HomeProComponent implements OnInit {
       pageLength: 6,
       processing: true
     };
+  }
+
+  getLogo() {
+    this.provider.getDhashboardBusinessLogo().subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    })
   }
 
   openModel(el: string) {

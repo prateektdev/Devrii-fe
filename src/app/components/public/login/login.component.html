@@ -50,7 +50,9 @@
                         </div>
 
                         <div class="text-center">
-                          <button class="btn btn-primary btn-login" type="submit" [disabled]="!loginForm.form.valid">
+                          <button class="btn btn-primary btn-login" [disabled]="!loginForm.form.valid" type="submit">
+                            <span *ngIf="spin" class="spinner-border spinner-border-sm" role="status"
+                              aria-hidden="true"></span>
                             Log in
                           </button>
                         </div>

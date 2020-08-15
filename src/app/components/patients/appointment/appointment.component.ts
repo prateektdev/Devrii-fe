@@ -19,6 +19,7 @@ export class AppointmentComponent implements OnInit {
 
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
+  public opened = false;
 
   ngOnInit() {
     this.dtOptions = {

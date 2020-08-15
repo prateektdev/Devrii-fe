@@ -21,6 +21,7 @@ import { ComingSoonComponent } from '../components/public/coming-soon/coming-soo
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "sign-up", component: SignUpComponent },
   { path: "patient/home", component: HomeComponent },

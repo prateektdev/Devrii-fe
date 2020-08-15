@@ -33,4 +33,14 @@ export class CommonService {
   openSnackBar(msg: string, action: string) {
     this.snackBar.open(msg, action, { duration: 5000 });
   }
+
+  checkLogin() {
+    const token = localStorage.getItem('token');
+    const isLogin = localStorage.getItem('isLogin');
+    if (isLogin === 'true' && token !== null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { CommonService } from '../../../service/common.service';
+import { NgForm } from '@angular/forms';
+import { ApiService } from 'src/app/service/api.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -9,7 +13,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private common: CommonService, private api: ApiService, private router: Router) { }
 
   public calendarPlugins = [dayGridPlugin]; // important!
   public opened = false;
@@ -34,6 +38,24 @@ export class HomeComponent implements OnInit {
       pageLength: 5,
       processing: true
     };
+    this.getUserProfile();
+    // this.getLogo();
+  }
+
+  getUserProfile() {
+    this.api.getUserProfileOptions().subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getLogo() {
+    this.api.getbussinessLogo().subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

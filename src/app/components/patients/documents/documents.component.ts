@@ -18,7 +18,7 @@ export class DocumentsComponent implements OnInit {
     { date: '10/05/2020', from: 'Dr.E', subject: 'Test Subject 6' },
     { date: '11/05/2020', from: 'Dr.F', subject: 'Test Subject 7' },
   ];
-
+  public opened = false;
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
 

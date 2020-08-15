@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public apiUrl = environment.apiUrl;
+  public apiUrl = environment!.apiUrl;
   public token = localStorage.getItem('token');
   public simpleHeader = {
     headers: new HttpHeaders({
@@ -20,7 +20,12 @@ export class ApiService {
   };
 
   login(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}oauth/token`, data, this.simpleHeader);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    };
+    return this.http.post(`${this.apiUrl}oauth/token`, data, httpOptions);
   }
 
   register(data: any): Observable<any> {
@@ -28,7 +33,14 @@ export class ApiService {
   }
 
   getbussinessLogo(): Observable<any> {
-    return this.http.get(`${this.apiUrl}api/Manage/GetBusinessLogo`, this.simpleHeader);
+    const opt = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    };
+    return this.http.get(`${this.apiUrl}api/Manage/GetBusinessLogo`, opt);
   }
 
   getDashboardSearchPerUser(): Observable<any> {
@@ -44,7 +56,14 @@ export class ApiService {
   }
 
   getUserProfileOptions(): Observable<any> {
-    return this.http.get(`${this.apiUrl}api/Manage/GetUserProfileOptions`, this.simpleHeader);
+    const opt = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    };
+    return this.http.get(`${this.apiUrl}api/Manage/GetUserProfileOptions`, opt);
   }
 
   getDashboardConfirmedAppointmentsForBusiness(): Observable<any> {
