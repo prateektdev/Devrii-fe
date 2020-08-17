@@ -15,11 +15,11 @@ export class ProviderComponent implements OnInit {
   public calendarPlugins = [dayGridPlugin]; // important!
   public opened = false;
   public data = [
-    { date: '05/05/2020', from: 'John Doe', subject: 'Test note 1' },
-    { date: '05/05/2020', from: 'Tony Stark', subject: 'Test note 2' },
-    { date: '05/05/2020', from: 'Clark kent', subject: 'Test note 3' },
-    { date: '05/05/2020', from: 'Steve Rogers', subject: 'Test note 4' },
-    { date: '05/05/2020', from: 'Bruce Banner', subject: 'Test note 5' },
+    { date: '05/05/2020', from: 'John Doe', subject: 'Test note 1', state: true },
+    { date: '05/05/2020', from: 'Tony Stark', subject: 'Test note 2', state: true },
+    { date: '05/05/2020', from: 'Clark kent', subject: 'Test note 3', state: true },
+    { date: '05/05/2020', from: 'Steve Rogers', subject: 'Test note 4', state: true },
+    { date: '05/05/2020', from: 'Bruce Banner', subject: 'Test note 5', state: true },
   ];
 
   public title = 'angulardatatables';
@@ -32,6 +32,11 @@ export class ProviderComponent implements OnInit {
       pageLength: 6,
       processing: true
     };
+  }
+
+  changeState(row: any) {
+    row.state = !row.state;
+    console.log(row);
   }
 
   openModel(el: string) {

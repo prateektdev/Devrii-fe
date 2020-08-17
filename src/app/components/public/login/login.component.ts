@@ -51,3 +51,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.common.toggleClass('login-bg', 'rm');
   }
 }
+
+
+// ng build --prod --baseHref=” https://prateektdev.github.io/Devrii-fe/”
