@@ -83,9 +83,10 @@
                   <input type="text" class="form-control-plaintext" id="staticEmail" placeholder="Enter E-mail">
                 </div>
               </div>
-              <button type="submit" class="btn btn-sm  btn-primary mb-2">Search</button>
+              <button type="submit" (click)="toggleModel('hide')" class="btn btn-sm  btn-primary mb-2">Search</button>
               <div class="col-sm-12">
                 <div class="row customBox">
+
                   <div class="col-sm-6">
                     <div class="float-left">
                       <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test">
@@ -141,9 +142,10 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Clear All</button>
-            <button type="button" class="btn btn-sm btn-primary">Select All</button>
-            <button type="button" class="btn btn-sm btn-primary">Next</button>
+            <button type="button" (click)="toggleModel('hide')" class="btn btn-sm btn-secondary"
+              data-dismiss="modal">Clear All</button>
+            <button type="button" (click)="toggleModel('hide')" class="btn btn-sm btn-primary">Select All</button>
+            <button type="button" (click)="toggleModel('hide')" class="btn btn-sm btn-primary">Next</button>
           </div>
         </div>
       </div>

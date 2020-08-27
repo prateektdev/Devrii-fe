@@ -15,10 +15,14 @@ export class UploadCenterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.common.scrollToBottom();
-    $('#smallModel').modal('show');
+    this.toggleModel('show')
+  }
+
+  toggleModel(action: string) {
+    $("#smallModel").modal(action);
   }
 
   ngOnDestroy() {
-    $("#smallModel").modal("hide");
+    this.toggleModel('hide')
   }
 }

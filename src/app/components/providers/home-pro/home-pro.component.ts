@@ -45,6 +45,10 @@ export class HomeProComponent implements OnInit {
     })
   }
 
+  showAlert() {
+    alert('No history avialable !');
+  }
+
   openModel(el: string) {
     this.common.toggleModel(el);
   }
