@@ -1,0 +1,12 @@
+ @media screen and (max-width: 775px) and (min-width: 300px) {
+   #search {
+     float: none !important;
+     width: 100% !important;
+     margin-top: 10px !important;
+   }
+ }
+
+ #search {
+   float: right;
+   width: 199px;
+ }

@@ -10,6 +10,7 @@ export class EsignComponent implements OnInit {
   constructor() { }
 
   public sidebarOptions = "providers";
+  public opened = false;
 
   ngOnInit() {
   }

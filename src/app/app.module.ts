@@ -23,6 +23,13 @@ import { PatientsComponent } from './components/providers/patients/patients.comp
 import { TeamComponent } from './components/providers/team/team.component';
 import { InviteComponent } from './components/providers/invite/invite.component';
 import { EsignComponent } from './components/providers/esign/esign.component';
+import { NewRxComponent } from './components/labs/new-rx/new-rx.component';
+import { ProviderComponent } from './components/providers/provider/provider.component';
+import { SecondNavbarComponent } from './components/includes/second-navbar/second-navbar.component';
+import { ProviderUploadComponent } from './components/providers/provider-upload/provider-upload.component';
+import { ProvidersDocumentsComponent } from './components/providers/providers-documents/providers-documents.component';
+import { ProvidersMessagesComponent } from './components/providers/providers-messages/providers-messages.component';
+import { ComingSoonComponent } from './components/public/coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +47,14 @@ import { EsignComponent } from './components/providers/esign/esign.component';
     PatientsComponent,
     TeamComponent,
     InviteComponent,
-    EsignComponent
+    EsignComponent,
+    NewRxComponent,
+    ProviderComponent,
+    SecondNavbarComponent,
+    ProviderUploadComponent,
+    ProvidersDocumentsComponent,
+    ProvidersMessagesComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,

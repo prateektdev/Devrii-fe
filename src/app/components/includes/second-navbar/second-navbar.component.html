@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light my-sticky-top second-nav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar2">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a href="/" class="navbar-brand">
+    <i class="fa fa-home fa-2x"></i>
+  </a>
+  <div class="navbar-collapse collapse" id="navbar2">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providers/home']">Provider Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providers/uploads']">Upload center</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providers/documents']">Documents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providers/messages']">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/coming-soon']">Video call</a>
+      </li>
+    </ul>
+  </div>
+  <form class="form-inline">
+    <div class="input-group">
+      <input type="text" class="form-control" id="searchInput" placeholder="Search" aria-label="Username"
+        aria-describedby="basic-addon1" />
+      <div id="searchInputDiv" class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+  </form>
+</nav>
+
+<!-- <li class="nav-item">
+    <i class="fa fa-home fa-2x"></i>
+</li> -->
