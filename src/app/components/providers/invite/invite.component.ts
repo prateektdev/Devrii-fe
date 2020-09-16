@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-invite',
@@ -22,6 +23,7 @@ export class InviteComponent implements OnInit {
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
   public sidebarOptions = "providers";
+  public invite: any = {};
 
   ngOnInit() {
     this.dtOptions = {
@@ -34,6 +36,12 @@ export class InviteComponent implements OnInit {
   handleApprove(row: any) {
     console.log(row);
     row.status = !row.status;
+  }
+
+  createInvite(form: NgForm) {
+    console.log(this.invite);
+    form.resetForm();
+    alert('Event Saved !');
   }
 
 }

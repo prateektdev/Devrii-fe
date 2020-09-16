@@ -159,38 +159,39 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form action="">
+              <form (ngSubmit)="AddEvent(addEventForm)" #addEventForm="ngForm">
                 <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Title</label>
-                      <input type="text" class="form-control" id="title" placeholder="Title">
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="date">Appointment Date</label>
-                          <input type="date" class="form-control" id="date">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="time">Time</label>
-                          <select class="form-control" id="time">
-                            <option>12:00 AM</option>
-                            <option>12:15 AM</option>
-                            <option>12:30 AM</option>
-                            <option>12:45 AM</option>
-                            <option>1:00 AM</option>
-                          </select>
-                        </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="event.title"
+                      #title="ngModel" placeholder="Title">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="date">Appointment Date</label>
+                        <input type="date" class="form-control" id="date" name="date" [(ngModel)]="event.date"
+                          #date="ngModel">
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="note">Note</label>
-                      <textarea class="form-control" id="note" rows="3"></textarea>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="time">Time</label>
+                        <select class="form-control" id="time" name="time" [(ngModel)]="event.time" #time="ngModel">
+                          <option>12:00 AM</option>
+                          <option>12:15 AM</option>
+                          <option>12:30 AM</option>
+                          <option>12:45 AM</option>
+                          <option>1:00 AM</option>
+                        </select>
+                      </div>
                     </div>
-                  </form>
+                  </div>
+                  <div class="form-group">
+                    <label for="note">Note</label>
+                    <textarea class="form-control" id="note" name="note" [(ngModel)]="event.note" #note="ngModel"
+                      rows="3"></textarea>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

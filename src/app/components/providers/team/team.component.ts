@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { NgForm } from '@angular/forms';
+import { CommonService } from 'src/app/service/common.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-team',
@@ -8,7 +11,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private common: CommonService, private api: ApiService) { }
 
   public calendarPlugins = [dayGridPlugin]; // important!
   public opened = false;
@@ -24,6 +27,7 @@ export class TeamComponent implements OnInit {
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
   public sidebarOptions = "providers";
+  public event: any = {};
 
 
   ngOnInit() {
@@ -32,6 +36,12 @@ export class TeamComponent implements OnInit {
       pageLength: 5,
       processing: true
     };
+  }
+
+  AddEvent(form: NgForm) {
+    console.log(this.event);
+    form.resetForm();
+    alert('Event Saved !');
   }
 
 }

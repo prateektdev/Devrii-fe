@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { NgForm } from '@angular/forms';
+import { CommonService } from 'src/app/service/common.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-patients',
@@ -8,7 +11,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class PatientsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private common: CommonService, private api: ApiService) { }
 
   public calendarPlugins = [dayGridPlugin]; // important!
   public opened = false;
@@ -24,6 +27,8 @@ export class PatientsComponent implements OnInit {
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
   public sidebarOptions = "providers";
+  public appointment: any = {};
+  public event: any = {};
 
   ngOnInit() {
     this.dtOptions = {
@@ -31,6 +36,22 @@ export class PatientsComponent implements OnInit {
       pageLength: 5,
       processing: true
     };
+  }
+
+  addAppointment(form: NgForm) {
+    console.log(this.appointment);
+    form.resetForm();
+    alert('Appointment Saved !');
+  }
+
+  openModel(el: string) {
+    this.common.toggleModel(el);
+  }
+
+  AddEvent(form: NgForm) {
+    console.log(this.event);
+    form.resetForm();
+    alert('Event Saved !');
   }
 
 }

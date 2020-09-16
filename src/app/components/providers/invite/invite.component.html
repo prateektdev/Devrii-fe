@@ -75,25 +75,27 @@
             <h3 class="text-center" style="margin-top: 20px;margin-bottom: 30px;">
               Create Invite
             </h3>
-            <form>
+            <form (ngSubmit)="createInvite(createInviteForm)" #createInviteForm="ngForm">
               <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Please Select</option>
-                  <option>Provider</option>
-                  <option>Patient</option>
-                  <option>Dental Lab</option>
-                  <option>Team Member</option>
+                <select class="form-control" id="type" name="type" [(ngModel)]="invite.type" #type="ngModel">
+                  <option [value]="undefined" disabled hidden>Please Select</option>
+                  <option value="1">Provider</option>
+                  <option value="2">Patient</option>
+                  <option value="3">Dental Lab</option>
+                  <option value="4">Team Member</option>
                 </select>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+                    <input type="date" class="form-control" id="firstName" name="firstName"
+                      [(ngModel)]="invite.firstName" #firstName="ngModel" placeholder="First Name">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+                    <input type="date" class="form-control" id="lastName" name="lastname" [(ngModel)]="invite.lastName"
+                      #lastName="ngModel" placeholder="Last Name">
                   </div>
                 </div>
               </div>

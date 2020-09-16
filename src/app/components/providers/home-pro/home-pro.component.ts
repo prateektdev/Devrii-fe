@@ -3,6 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { CommonService } from 'src/app/service/common.service';
 import { ApiService } from 'src/app/service/api.service';
 import { ProviderApiService } from 'src/app/service/new-apis/provider-api.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home-pro',
@@ -28,6 +29,7 @@ export class HomeProComponent implements OnInit {
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
   public sidebarOptions = "providers";
+  public event: any = {};
 
   ngOnInit() {
     this.dtOptions = {
@@ -43,6 +45,14 @@ export class HomeProComponent implements OnInit {
     }, err => {
       console.log(err);
     })
+  }
+
+  AddEvent(form: NgForm) {
+    // console.log(form);
+    console.log(this.event);
+    form.resetForm();
+    alert('Event Saved !');
+    // this.common.openSnackBar('Event Saved !', 'Dismiss');
   }
 
   showAlert() {
