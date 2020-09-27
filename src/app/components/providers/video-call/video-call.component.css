@@ -1,0 +1,47 @@
+.my-font {
+  font-size: 12px;
+}
+
+.myDate {
+  text-align: right;
+  color: red;
+  font-size: 12px;
+}
+
+.underLine {
+  text-decoration: underline;
+}
+
+.logoContainer {
+  background: white;
+  position: relative;
+  height: 352px;
+}
+
+.videoLogo {
+  position: absolute;
+  top: 50%;
+  height: 50px;
+  width: auto;
+  left: 41%;
+}
+
+.notesHeading {
+  background-color: #b0aaaa;
+  text-align: center;
+  color: white;
+  padding: 5px;
+}
+
+.notesContainer {
+  border: 1px solid black;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 350px;
+  background-color: white;
+}
+
+.btnContainer {
+  padding-left: 15px;
+  margin-top: 15px
+}

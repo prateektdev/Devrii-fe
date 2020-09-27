@@ -30,6 +30,54 @@ import { ProviderUploadComponent } from './components/providers/provider-upload/
 import { ProvidersDocumentsComponent } from './components/providers/providers-documents/providers-documents.component';
 import { ProvidersMessagesComponent } from './components/providers/providers-messages/providers-messages.component';
 import { ComingSoonComponent } from './components/public/coming-soon/coming-soon.component';
+import { DialogComponent } from './components/includes/dialog/dialog.component';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { ToastrModule } from 'ngx-toastr';
+import { VideoCallComponent } from './components/providers/video-call/video-call.component';
+
+/**
+ * Custom angular notifier options
+ */
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'top',
+      distance: 12,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 @NgModule({
   declarations: [
@@ -54,7 +102,12 @@ import { ComingSoonComponent } from './components/public/coming-soon/coming-soon
     ProviderUploadComponent,
     ProvidersDocumentsComponent,
     ProvidersMessagesComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    DialogComponent,
+    VideoCallComponent
+  ],
+  entryComponents: [
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +117,9 @@ import { ComingSoonComponent } from './components/public/coming-soon/coming-soon
     FormsModule,
     HttpClientModule,
     DataTablesModule,
-    MaterialModule
+    MaterialModule,
+    NotifierModule.withConfig(customNotifierOptions),
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

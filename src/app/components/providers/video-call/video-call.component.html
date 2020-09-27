@@ -1,0 +1,265 @@
+<app-navbar></app-navbar>
+<app-second-navbar></app-second-navbar>
+<mat-sidenav-container id="matSidenavContainer">
+  <mat-sidenav id="sidebar" [(opened)]="opened">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content id="matSidenavContainer">
+    <button (click)="opened = !opened" mat-icon-button color="primary"
+      aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="container">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-3 border mb-2">
+            <h4 class="pt-2">Invite new provider:</h4>
+            <hr>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control-plaintext pl-2" id="staticEmail" placeholder="Enter E-mail" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control-plaintext pl-2" id="staticSearch" placeholder="Search.." />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary mb-2">
+                Show All
+              </button>
+            </form>
+            <div class="col-sm-12">
+              <div class="row customBox">
+                <div class="col-sm-6" (click)="ShowMessage('Maya N')">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    1
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right" (click)="ShowMessage('Maya N')">
+                  <div class="float-right docName">Maya N.</div>
+                </div>
+              </div>
+              <div class="row customBox">
+                <div class="col-sm-6">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    5
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right">
+                  <div class="float-right docName">Lisa M.</div>
+                </div>
+              </div>
+              <div class="row customBox">
+                <div class="col-sm-6">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    3
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right" (click)="ShowMessage('Maria L')">
+                  <div class="float-right docName">Maria L.</div>
+                </div>
+              </div>
+              <div class="row customBox">
+                <div class="col-sm-6">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    2
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right">
+                  <div class="float-right docName">John D.</div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2 m-0">
+              <button type="button" class="btn btn-sm btn-secondary mr-auto" data-dismiss="modal">
+                Clear All
+              </button>
+              <button type="button" class="btn btn-sm btn-primary ml-auto">Next</button>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <h3 class="text-center" *ngIf="docName==''">Video Call</h3>
+            <h3 class="text-center" (click)="showNotes()" *ngIf="docName!=''">{{docName}}</h3>
+            <!-- *ngIf="docName!=''" -->
+            <div class="col-md-12" *ngIf="docName!='' && showNotesDiv==false">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <form>
+                      <div class="form-group">
+                        <!-- <label for="note">Private Note</label> -->
+                        <textarea class="form-control" id="note" placeholder="Private note..." rows="5"></textarea>
+                      </div>
+                      <div class="row">
+                        <button class="btn btn-primary ml-3 mr-3">Edit</button>
+                        <button class="btn btn-success">Save</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="col-md-12">
+                    <form class="form-inline mt-2">
+                      <div class="form-group mb-2">
+                        <input type="password" class="form-control" id="comment" placeholder="Add commnet..">
+                      </div>
+                      <button type="submit" class="btn btn-primary ml-2 mb-2">Submit</button>
+                    </form>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12 border logoContainer">
+                    <img class="videoLogo" src="../../../../assets/images/video-call.png" alt="...">
+                  </div>
+                  <div class="col-md-12 mt-2 mb-2 border">
+                    <div class="col-md-12">
+                      <p class="my-font mb-1">From: Dr P</p>
+                      <p class="my-font mb-1">The patient's overall Oral Hygiene is Normal. Today's exam shows the
+                        following.
+                      </p>
+                      <div class="my-font">
+                        Plaque : <span style="text-decoration: underline;">Normal</span>
+                      </div>
+                      <div class="my-font">
+                        Stain : <span style="text-decoration: underline;">Normal</span>
+                      </div>
+                      <div class="my-font">
+                        Food Impaction Areas : <span style="text-decoration: underline;">Normal</span>
+                      </div>
+                      <div class="myDate">06/06/2020 8:15</div>
+                      <p class="my-font mb-1">From: Dr P</p>
+                      <p class="my-font mb-1">
+                        The patient has <span class="underLine">no evident</span> oral pathology. <span
+                          class="underLine">No
+                          treatment</span> is recommended. The prognosis is <span class="underLine">good</span>. <span
+                          class="underLine">There is no evident
+                          tooth-related oral pathology</span>.
+                      </p>
+                      <div class="myDate">06/08/2020 14:25</div>
+                      <p class="my-font mb-1">From: Dr M <span style="margin-left: 70%;"><i
+                            class="fa fa-check"></i></span></p>
+                      <p class="my-font mb-1">
+                        The patient has <span class="underLine">no evident</span> oral pathology. <span
+                          class="underLine">No
+                          treatment</span>
+                        is recommended. The prognosis is <span class="underLine">good</span>. <span
+                          class="underLine">There is no evident
+                          tooth-related oral pathology</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12" *ngIf="docName!='' && showNotesDiv==true">
+              <table *ngIf="showTable" class="table table-striped table-bordered table-sm row-border hover" datatable
+                [dtOptions]="dtOptions">
+                <thead class="thead-new">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Provider</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let group of data">
+                    <td (click)="showPrivateNote()">{{group.date}}</td>
+                    <td (click)="showPrivateNote()">{{group.patient}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <div class="row" *ngIf="!showTable">
+                <div class="col-md-6 ml-2 border">
+                  hello
+                </div>
+                <div class="col-md-6 border">
+                  world
+                </div>
+              </div> -->
+              <div class="col-md-12" *ngIf="!showTable">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="col-md-12 notesContainer">
+                      <div class="notesHeading">
+                        Private Notes
+                      </div>
+                      <div class="col-md-12">
+                        <p class="my-font mb-1">
+                          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit corrupti eligendi quae ab
+                          doloremque cumque soluta iure, similique ipsum autem, vero nesciunt optio alias? Doloribus
+                          ipsum
+                          ipsam vero nostrum illo!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="col-md-12 notesContainer">
+                      <div class="notesHeading">
+                        Providers Notes
+                      </div>
+                      <div class="col-md-12">
+                        <p class="my-font mb-1">From: Dr P</p>
+                        <p class="my-font mb-1">The patient's overall Oral Hygiene is Normal. Today's exam shows the
+                          following.
+                        </p>
+                        <div class="my-font">
+                          Plaque : <span style="text-decoration: underline;">Normal</span>
+                        </div>
+                        <div class="my-font">
+                          Stain : <span style="text-decoration: underline;">Normal</span>
+                        </div>
+                        <div class="my-font">
+                          Food Impaction Areas : <span style="text-decoration: underline;">Normal</span>
+                        </div>
+                        <div class="myDate">06/06/2020 8:15</div>
+                        <p class="my-font mb-1">From: Dr P</p>
+                        <p class="my-font mb-1">
+                          The patient has <span class="underLine">no evident</span> oral pathology. <span
+                            class="underLine">No
+                            treatment</span> is recommended. The prognosis is <span class="underLine">good</span>. <span
+                            class="underLine">There is no evident
+                            tooth-related oral pathology</span>.
+                        </p>
+                        <div class="myDate">06/08/2020 14:25</div>
+                        <p class="my-font mb-1">From: Dr M <span style="margin-left: 70%;"><i
+                              class="fa fa-check"></i></span></p>
+                        <p class="my-font mb-1">
+                          The patient has <span class="underLine">no evident</span> oral pathology. <span
+                            class="underLine">No
+                            treatment</span>
+                          is recommended. The prognosis is <span class="underLine">good</span>. <span
+                            class="underLine">There is no evident
+                            tooth-related oral pathology</span>.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row btnContainer">
+                  <button class="btn btn-danger mr-2">Cancel</button>
+                  <button class="btn btn-primary mr-2">Edit</button>
+                  <button class="btn btn-success mr-2">Save</button>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="mb-3"></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -27,15 +27,19 @@ export class ProvidersMessagesComponent implements OnInit, OnDestroy {
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
   public sidebarOptions = "providers";
+  public docName = "";
 
   ngOnInit() {
-    this.common.scrollToBottom();
-    $('#smallModel').modal('show');
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 6,
       processing: true
     };
+  }
+
+  ShowMessage(name: string) {
+    console.log(name)
+    this.docName = name;
   }
 
   ngOnDestroy() {

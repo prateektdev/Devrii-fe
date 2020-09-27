@@ -11,145 +11,217 @@
     </button>
     <div class="container">
       <div class="col-md-12">
-        <h3 class="text-center">Most Recent Messages</h3>
-        <div class="row mb-2">
-          <div class="col-md-6 col-sm-12">
-            <button class="btn btn-sm btn-outline-secondary mr-2">Archieves</button>
-            <button class="btn btn-outline-secondary btn-sm">Favourites</button>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <input class="form-control" placeholder="New Messages" type="text" name="search" id="search">
-          </div>
-        </div>
-        <div class="mb-3">
-          <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
-            <thead class="thead-new">
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Patient Name</th>
-                <th scope="col">Subject</th>
-                <th scope="col">eRx / Note</th>
-                <th scope="col">New Comment</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let group of data">
-                <td>{{group.date}}</td>
-                <td>{{group.patient}}</td>
-                <td>{{group.subject}}</td>
-                <td>{{group.note}}</td>
-                <td class="text-center">
-                  <i class="fa fa-check text-success" *ngIf="group.comment==true" aria-hidden="true"></i>
-                  <i class="fa fa-times text-danger" *ngIf="group.comment==false" aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                  <button class="btn btn-sm btn-primary">
-                    {{group.actionStatus}}
-                  </button>
-                  <button class="btn btn-sm btn-danger ml-2">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- modal open -->
-
-    <div class="modal fade bd-example-modal-sm" id="smallModel" tabindex="-1" role="dialog"
-      aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Invite new provider:
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body my-modal-body">
+        <div class="row">
+          <div class="col-md-3 border mb-2">
+            <h4 class="pt-2">Invite new provider:</h4>
+            <hr>
             <form>
               <div class="form-group row">
                 <div class="col-sm-12">
-                  <input type="text" class="form-control-plaintext" id="staticEmail" placeholder="Enter E-mail" />
+                  <input type="text" class="form-control-plaintext pl-2" id="staticEmail" placeholder="Enter E-mail" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control-plaintext pl-2" id="staticSearch" placeholder="Search.." />
                 </div>
               </div>
               <button type="submit" class="btn btn-sm btn-primary mb-2">
-                Search
+                Show All
               </button>
-              <div class="col-sm-12">
-                <div class="row customBox">
-                  <div class="col-sm-6">
-                    <div class="float-left">
-                      <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
-                    </div>
-                    <div class="customBadge">
-                      1
-                    </div>
+            </form>
+            <div class="col-sm-12">
+              <div class="row customBox">
+                <div class="col-sm-6" (click)="ShowMessage('Maya N')">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
                   </div>
-                  <div class="col-sm-6 float-right">
-                    <div class="float-right docName">Maya N.</div>
+                  <div class="customBadge">
+                    1
                   </div>
                 </div>
-                <div class="row customBox">
-                  <div class="col-sm-6">
-                    <div class="float-left">
-                      <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
-                    </div>
-                    <div class="customBadge">
-                      5
-                    </div>
-                  </div>
-                  <div class="col-sm-6 float-right">
-                    <div class="float-right docName">Lisa M.</div>
-                  </div>
-                </div>
-                <div class="row customBox">
-                  <div class="col-sm-6">
-                    <div class="float-left">
-                      <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
-                    </div>
-                    <div class="customBadge">
-                      3
-                    </div>
-                  </div>
-                  <div class="col-sm-6 float-right">
-                    <div class="float-right docName">Maria L.</div>
-                  </div>
-                </div>
-                <div class="row customBox">
-                  <div class="col-sm-6">
-                    <div class="float-left">
-                      <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
-                    </div>
-                    <div class="customBadge">
-                      2
-                    </div>
-                  </div>
-                  <div class="col-sm-6 float-right">
-                    <div class="float-right docName">John D.</div>
-                  </div>
+                <div class="col-sm-6 float-right" (click)="ShowMessage('Maya N')">
+                  <div class="float-right docName">Maya N.</div>
                 </div>
               </div>
-            </form>
+              <div class="row customBox">
+                <div class="col-sm-6">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    5
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right">
+                  <div class="float-right docName">Lisa M.</div>
+                </div>
+              </div>
+              <div class="row customBox">
+                <div class="col-sm-6">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    3
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right">
+                  <div class="float-right docName">Maria L.</div>
+                </div>
+              </div>
+              <div class="row customBox">
+                <div class="col-sm-6">
+                  <div class="float-left">
+                    <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
+                  </div>
+                  <div class="customBadge">
+                    2
+                  </div>
+                </div>
+                <div class="col-sm-6 float-right">
+                  <div class="float-right docName">John D.</div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2 m-0">
+              <button type="button" class="btn btn-sm btn-secondary mr-auto" data-dismiss="modal">
+                Clear All
+              </button>
+              <button type="button" class="btn btn-sm btn-primary ml-auto">Next</button>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
-              Clear All
-            </button>
-            <button type="button" class="btn btn-sm btn-primary">
-              Select All
-            </button>
-            <button type="button" class="btn btn-sm btn-primary">Next</button>
+          <div class="col-md-9">
+            <h3 class="text-center" *ngIf="docName==''">Most Recent Messages</h3>
+            <h3 class="text-center" *ngIf="docName!=''">{{docName}}</h3>
+            <div class="row mb-2">
+              <div class="col-md-6 col-sm-12">
+                <button class="btn btn-sm btn-outline-secondary mr-2">Archieves</button>
+                <button class="btn btn-outline-secondary btn-sm">Favourites</button>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <input class="form-control" placeholder="New Messages" type="text" name="search" id="search">
+              </div>
+            </div>
+            <div class="mb-3" *ngIf="docName==''">
+              <table class="table table-striped table-bordered table-sm row-border hover" datatable
+                [dtOptions]="dtOptions">
+                <thead class="thead-new">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">eRx / Note</th>
+                    <th scope="col">New Comment</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let group of data">
+                    <td>{{group.date}}</td>
+                    <td>{{group.patient}}</td>
+                    <td>{{group.subject}}</td>
+                    <td>{{group.note}}</td>
+                    <td class="text-center">
+                      <i class="fa fa-check text-success" *ngIf="group.comment==true" aria-hidden="true"></i>
+                      <i class="fa fa-times text-danger" *ngIf="group.comment==false" aria-hidden="true"></i>
+                    </td>
+                    <td class="text-center">
+                      <button class="btn btn-sm btn-primary">
+                        {{group.actionStatus}}
+                      </button>
+                      <button class="btn btn-sm btn-danger ml-2">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mb-3" *ngIf="docName!=''">
+              <div class="col-md-12 messageClass">
+                <div class="row mr-0 ml-0 pt-2">
+                  <div class="ml-2 mr-auto">Subject : PT Spencer K.</div>
+                  <div class="mr-2">
+                    <div class="row">
+                      <a class="mr-2"><i class="fa fa-plus"></i></a>
+                      <a class="mr-2"><i class="fa fa-share"></i></a>
+                      <a class="mr-2"><i class="fa fa-thumbs-o-up"></i></a>
+                      <a class="mr-2"><i class="fa fa-star-o"></i></a>
+                      <a class="mr-2"><i class="fa fa-trash"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <p class="ml-2 mb-0">Patient name : John Doe</p>
+                <p class="ml-2 mb-0">From : Dr. M</p>
+                <p class="ml-2 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus recusandae
+                  laudantium totam maxime suscipit vel qui ad quaerat dolore. Qui debitis necessitatibus a!
+                  Voluptatibus, perferendis qui eaque consequatur consectetur voluptas?</p>
+                <div class="" style="text-align: right;">
+                  <span class="mr-2">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                  <span class="mr-2">30/06/19</span>
+                  <span class="mr-2">8:45 PM</span>
+                </div>
+              </div>
+              <div class="col-md-12 messageClass mt-2">
+                <div class="row mr-0 ml-0 pt-2">
+                  <div class="ml-2 mr-auto">Subject : PT Spencer K.</div>
+                  <div class="mr-2">
+                    <div class="row">
+                      <a class="mr-2"><i class="fa fa-plus"></i></a>
+                      <a class="mr-2"><i class="fa fa-share"></i></a>
+                      <a class="mr-2"><i class="fa fa-thumbs-o-up"></i></a>
+                      <a class="mr-2"><i class="fa fa-star-o"></i></a>
+                      <a class="mr-2"><i class="fa fa-trash"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <p class="ml-2 mb-0">Patient name : John Doe</p>
+                <p class="ml-2 mb-0">From : Dr. M</p>
+                <p class="ml-2 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus recusandae
+                  laudantium totam maxime suscipit vel qui ad quaerat dolore. Qui debitis necessitatibus a!
+                  Voluptatibus, perferendis qui eaque consequatur consectetur voluptas?</p>
+                <div class="" style="text-align: right;">
+                  <span class="mr-2">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                  <span class="mr-2">30/06/19</span>
+                  <span class="mr-2">8:45 PM</span>
+                </div>
+              </div>
+              <div class="col-md-12 formDiv mt-2">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="email" class="form-control" id="subject" placeholder="Subject...">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="pname">Patient Name</label>
+                        <input type="email" class="form-control" id="pname" placeholder="Patient name...">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" placeholder="Your message ..." rows="3"></textarea>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-danger ml-3 mr-3">Clear All</button>
+                    <button class="btn btn-primary">Send</button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- modal close -->
+
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -18,18 +18,17 @@ export class ProvidersDocumentsComponent implements OnInit, OnDestroy {
   public data = [
     { checked: false, date: '04/05/2020', patient: 'John Doe', subject: 'Test subject', note: 'Test note 1', comment: false, actionStatus: 'Forward' },
     { checked: false, date: '05/05/2020', patient: 'Tony Stark', subject: 'Test subject', note: 'Test note 1', comment: false, actionStatus: 'Favourite' },
-    { checked: false, date: '06/05/2020', patient: 'Bruce Wayne', subject: 'Test subject', note: 'Test note 1', comment: true, actionStatus: 'Action' },
-    { checked: false, date: '07/05/2020', patient: 'Steve Rogers', subject: 'Test subject', note: 'Test note 1', comment: false, actionStatus: 'Action' },
+    { checked: false, date: '06/05/2020', patient: 'Bruce Wayne', subject: 'Test subject', note: 'Test note 1', comment: true, actionStatus: 'Forward' },
+    { checked: false, date: '07/05/2020', patient: 'Steve Rogers', subject: 'Test subject', note: 'Test note 1', comment: false, actionStatus: 'Favourite' },
     { checked: false, date: '08/05/2020', patient: 'Clark Kent', subject: 'Test subject', note: 'Test note 1', comment: false, actionStatus: 'Action' },
   ];
 
   public title = 'angulardatatables';
   public dtOptions: DataTables.Settings = {};
   public sidebarOptions = "providers";
+  public docName = "";
 
   ngOnInit() {
-    this.common.scrollToBottom();
-    $('#smallModel').modal('show');
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 6,
@@ -37,7 +36,24 @@ export class ProvidersDocumentsComponent implements OnInit, OnDestroy {
     };
   }
 
+  changeStatus(index) {
+    if (this.data[index].actionStatus === 'Forward') {
+      this.data[index].actionStatus = 'Favourite';
+    } else {
+      this.data[index].actionStatus = 'Forward';
+    }
+  }
+
+  changeName(name: string) {
+    this.docName = name
+  }
+
+  openReportModal() {
+    console.log('report modal');
+    $('#reportModal').modal('show');
+  }
+
   ngOnDestroy() {
-    $('#smallModel').modal('hide');
+    console.log('destroy')
   }
 }

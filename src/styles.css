@@ -1,6 +1,8 @@
 @import "~@fullcalendar/core/main.css";
 @import "~@fullcalendar/daygrid/main.css";
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "~angular-notifier/styles";
+@import '~ngx-toastr/toastr.css';
 html, body {
   height: 100%;
 }
@@ -104,4 +106,13 @@ body {
   color: white;
   font-family: "Courier New", Courier, monospace;
   font-size: 25px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

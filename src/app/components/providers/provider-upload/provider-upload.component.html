@@ -12,56 +12,44 @@
     <div class="container">
       <div class="col-md-12">
         <h3 class="text-center">Upload Center</h3>
-        <!-- <div class="row">
-                    <div class="col-md-12">
-                        <table class="table mb-3" style="margin-top: 20px;">
-                            <thead class="thead-new">
-                                <tr>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th scope="col">Provider</th>
-                                    <th scope="col">Approve</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>05/05/2020</th>
-                                    <td>12:45 PM</td>
-                                    <td>Dr.K</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-success">Approve</button>
-                                    </td>
-                                    <td class="text-center">
-                                        <button class="btn btn-info">Sign in..</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>05/05/2020</th>
-                                    <td>12:45 PM</td>
-                                    <td>Dr.K</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-success">Approve</button>
-                                    </td>
-                                    <td class="text-center">
-                                        <button class="btn btn-info">Sign in..</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>05/05/2020</th>
-                                    <td>12:45 PM</td>
-                                    <td>Dr.K</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-success">Approve</button>
-                                    </td>
-                                    <td class="text-center">
-                                        <button class="btn btn-info">Sign in..</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div> -->
+        <div class="row" *ngIf="docterName!=''">
+          <div class="col-md-6">
+            <h3 class="text-center" *ngIf="docterName!=''">{{docterName}}</h3>
+            <form>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" placeholder="Subject...">
+              </div>
+              <div class="form-group">
+                <label for="patientName">Patient Name</label>
+                <input type="text" class="form-control" id="patientName" placeholder="Patient Name...">
+              </div>
+              <div class="form-group">
+                <label for="note">Note</label>
+                <textarea class="form-control" id="note" placeholder="Note..." rows="3"></textarea>
+              </div>
+              <div class="row m-auto">
+                <button type="reset" class="btn btn-danger mr-2">Clear</button>
+                <button (click)="openNewModal('#newModal','show')" class="btn btn-primary">Attact Rx</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop
+              (onFileDropped)="uploadFile($event)">
+              <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+            </div>
+            <div class="files-list" *ngFor="let file of files;let i= index">
+              <p> {{ file }} </p>
+              <button class="delete-file" (click)="deleteAttachment(i)">
+                <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="sendBtn">
+              <button (click)="toggleModal('#agreeModal','show')" class="btn btn-primary btn-block">Send</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -90,7 +78,7 @@
                 Search
               </button>
               <div class="col-sm-12">
-                <div class="row customBox">
+                <div class="row customBox" (click)="showName('Maya N')">
                   <div class="col-sm-6">
                     <div class="float-left">
                       <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
@@ -103,7 +91,7 @@
                     <div class="float-right docName">Maya N.</div>
                   </div>
                 </div>
-                <div class="row customBox">
+                <div class="row customBox" (click)="showName('Lisa M')">
                   <div class="col-sm-6">
                     <div class="float-left">
                       <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
@@ -116,7 +104,7 @@
                     <div class="float-right docName">Lisa M.</div>
                   </div>
                 </div>
-                <div class="row customBox">
+                <div class="row customBox" (click)="showName('Maria L')">
                   <div class="col-sm-6">
                     <div class="float-left">
                       <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
@@ -129,7 +117,7 @@
                     <div class="float-right docName">Maria L.</div>
                   </div>
                 </div>
-                <div class="row customBox">
+                <div class="row customBox" (click)="showName('John D')">
                   <div class="col-sm-6">
                     <div class="float-left">
                       <img class="profileImg rounded-circle" src="../../../assets/images/doctor.webp" alt="test" />
@@ -146,17 +134,332 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
+            <button type="button" id="closeBtn" class="btn btn-sm btn-secondary" data-dismiss="modal">
               Clear All
             </button>
             <button type="button" class="btn btn-sm btn-primary">
               Select All
             </button>
+            <!-- (click)="openNewModal('#newModal','show')" -->
             <button type="button" class="btn btn-sm btn-primary">Next</button>
           </div>
         </div>
       </div>
     </div>
     <!-- modal close -->
+
+    <!-- new modal open -->
+    <div class="modal fade bd-example-modal-lg" id="newModal" tabindex="-1" role="dialog"
+      aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Form</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="numberCircle">
+                        1
+                      </div>
+                      <div class="col-md-12 border mt-2">
+                        <div class="row ml-auto mr-auto">
+                          <div class="noOpactiy" (click)="toggleOpacity('#1st')" id="1st">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-18.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#2nd')" id="2nd">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-17.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#3rd')" id="3rd">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-16.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#4th')" id="4th">
+                            <img class="m-auto teeth" style="width: 42px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-15.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#5th')" id="5th">
+                            <img class="m-auto teeth" style="width: 46px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-14.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#6th')" id="6th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-13.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#7th')" id="7th">
+                            <img class="m-auto teeth" style="width: 38px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-12.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#8th')" id="8th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla1/periodontograma-dientes-arriba-11.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#9th')" id="9th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-21.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#10th')" id="10th">
+                            <img class="m-auto teeth" style="width: 38px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-22.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#11th')" id="11th">
+                            <img class="m-auto teeth" style="width: 43px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-23.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#12th')" id="12th">
+                            <img class="m-auto teeth" style="width: 43px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-24.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#13th')" id="13th">
+                            <img class="m-auto teeth" style="width: 42px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-25.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#14th')" id="14th">
+                            <img class="m-auto teeth" style="width: 42px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-26.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#15th')" id="15th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-27.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#16th')" id="16th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla2/periodontograma-dientes-arriba-28.png"
+                              alt="...">
+                          </div>
+                        </div>
+                        <div class="row ml-auto mr-auto">
+                          <div class="noOpactiy" (click)="toggleOpacity('#17th')" id="17th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-18b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#18th')" id="18th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-17b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#19th')" id="19th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-16b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#20th')" id="20th">
+                            <img class="m-auto teeth" style="width: 42px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-15b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#21th')" id="21th">
+                            <img class="m-auto teeth" style="width: 46px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-14b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#22th')" id="22th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-13b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#23th')" id="23th">
+                            <img class="m-auto teeth" style="width: 38px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-12b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#24th')" id="24th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla3/periodontograma-dientes-arriba-11b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#25th')" id="25th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-21b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#26th')" id="26th">
+                            <img class="m-auto teeth" style="width: 38px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-22b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#27th')" id="27th">
+                            <img class="m-auto teeth" style="width: 43px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-23b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#28th')" id="28th">
+                            <img class="m-auto teeth" style="width: 43px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-24b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#29th')" id="29th">
+                            <img class="m-auto teeth" style="width: 42px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-25b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#30th')" id="30th">
+                            <img class="m-auto teeth" style="width: 42px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-26b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#31th')" id="31th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-27b.png"
+                              alt="...">
+                          </div>
+                          <div class="noOpactiy" (click)="toggleOpacity('#32th')" id="32th">
+                            <img class="m-auto teeth" style="width: 50px;"
+                              src="../../../../assets/images/teeth/tabla4/periodontograma-dientes-arriba-28b.png"
+                              alt="...">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="tooths">Tooths</label>
+                          <input type="text" class="form-control" id="tooths">
+                        </div>
+                        <div class="form-group">
+                          <label for="areas">Areas</label>
+                          <input type="text" class="form-control" id="areas">
+                        </div>
+                        <div class="form-group">
+                          <label for="notes">Notes</label>
+                          <textarea class="form-control" id="notes" rows="2"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="numberCircle">
+                        2
+                      </div>
+                      <div class="col-md-12 border mt-2">
+                        <div class="form-group col-md-12 mt-2">
+                          <select id="inputState" class="form-control">
+                            <option selected>Select an options</option>
+                            <option>General Note</option>
+                            <option>General Dentist</option>
+                            <option>Endodontics</option>
+                            <option>Pedodontics</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <p class="mb-0">Reason for Referral : Endodontic</p>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              O root canel Therapy
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              O history of previous rct
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Retreatment
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Restore Access
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Refer back to docter for Restore Access
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Leave Post Space
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Apiceoctomy
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Pathology
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Periarticular surgery
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <label class="form-check-label" for="invalidCheck2">
+                              Retreiving seperate instrument
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-success mr-auto ml-auto mt-2 mb-2">Attach</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- new modal close -->
+
+    <!-- agree modal start -->
+    <div class="modal fade" id="agreeModal" tabindex="-1" role="dialog" aria-labelledby="agreeModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Agree</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="height: auto !important;">
+            By Selecting “I agree” in lieu of a physical signature,<br>
+            I, Dr.<input type="text" class="agreeText"> ,consent to the creation of this Rx.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+            <button type="button" (click)="showNotification()" class="btn btn-primary">I agree and send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <notifier-container></notifier-container>
+    <!-- agree modal close -->
+    <!-- success modal start -->
   </mat-sidenav-content>
 </mat-sidenav-container>

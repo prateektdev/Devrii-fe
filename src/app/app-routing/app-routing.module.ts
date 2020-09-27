@@ -18,6 +18,7 @@ import { ProviderUploadComponent } from "../components/providers/provider-upload
 import { ProvidersDocumentsComponent } from "../components/providers/providers-documents/providers-documents.component";
 import { ProvidersMessagesComponent } from '../components/providers/providers-messages/providers-messages.component';
 import { ComingSoonComponent } from '../components/public/coming-soon/coming-soon.component';
+import { VideoCallComponent } from '../components/providers/video-call/video-call.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: "providers/uploads", component: ProviderUploadComponent },
   { path: "providers/documents", component: ProvidersDocumentsComponent },
   { path: "providers/messages", component: ProvidersMessagesComponent },
+  { path: "providers/video-call", component: VideoCallComponent },
   { path: "labs/home", component: NewRxComponent },
   { path: "coming-soon", component: ComingSoonComponent },
 ];

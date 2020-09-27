@@ -1,0 +1,97 @@
+/* drag and drop css start */
+
+.uploadfilecontainer {
+  background-image: url("../../../../assets/images/file-upload.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  height: 200px;
+  width: 80%;
+  margin: 20px auto;
+  border: 2px dashed #1C8ADB;
+  border-radius: 10px;
+  background-color: #ebebeb !important;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #9ecbec !important;
+  opacity: 0.8;
+}
+
+.files-list {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 5px;
+  color: #1c8adb;
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.files-list .delete-file img {
+  width: 30px;
+}
+
+/* drag and drop css end */
+
+.sendBtn {
+  width: 80%;
+  margin: auto;
+}
+
+.modal-body {
+  height: 370px;
+  overflow-y: scroll;
+}
+
+.addOpactiy {
+  border: 1px solid red;
+  border-radius: 5px;
+  height: 50px;
+  width: auto;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.noOpactiy {
+  height: 38px;
+  width: auto;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.agreeText {
+  width: 150px;
+  border-radius: 5px;
+  padding-left: 6px;
+}
+
+.teeth {
+  width: 15px !important;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.numberCircle {
+  width: 50px;
+  background: #68d296;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  line-height: 50px;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.form-check-label {
+  font-size: 14px;
+}

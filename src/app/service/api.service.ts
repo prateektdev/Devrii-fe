@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public apiUrl = environment!.apiUrl;
+  public apiUrl = environment.apiUrl;
   public token = localStorage.getItem('token');
   public simpleHeader = {
     headers: new HttpHeaders({

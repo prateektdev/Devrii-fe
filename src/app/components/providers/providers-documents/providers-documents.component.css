@@ -1,5 +1,87 @@
-.form-check-input {
+#exampleCheck1 {
   position: absolute;
   margin-top: .3rem;
-  margin-left: 18px !important;
+  margin-left: 6px !important;
+}
+
+.modal-lg {
+  max-width: 80% !important;
+}
+
+#reportModal {
+  margin-top: 40px;
+}
+
+.dateSpan {
+  margin-left: 70px;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.headingRow {
+  border-bottom: 1px solid black;
+  width: 80%;
+}
+
+.drSpan {
+  border-left: 1px solid black;
+  margin-left: 6px;
+  padding-left: 5px;
+}
+
+.width-45 {
+  width: 45%;
+}
+
+.fileImage {
+  height: 60px;
+  width: auto;
+}
+
+.fileText {
+  font-size: 12px;
+}
+
+.showIcons {
+  width: 20%;
+  margin: auto;
+  text-align: center;
+}
+
+.teeth {
+  width: 15px !important;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.noOpactiy {
+  height: 38px;
+  width: auto;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.modal-body {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.teethDetails {
+  background-color: #afdfcf;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.my-font {
+  font-size: 12px;
+}
+
+.myDate {
+  text-align: right;
+  color: red;
+  font-size: 12px;
+}
+
+.underLine {
+  text-decoration: underline;
 }
