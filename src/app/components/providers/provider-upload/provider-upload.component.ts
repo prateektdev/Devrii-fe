@@ -60,7 +60,7 @@ export class ProviderUploadComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.common.scrollToBottom();
+    // this.common.scrollToBottom();
     this.toggleModal('#smallModel', 'show');
   }
 

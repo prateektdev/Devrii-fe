@@ -11,6 +11,8 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  public isLogin = false;
+
   ngOnInit() {
   }
 

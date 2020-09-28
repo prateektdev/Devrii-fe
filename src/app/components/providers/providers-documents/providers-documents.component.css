@@ -9,7 +9,8 @@
 }
 
 #reportModal {
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  top: 0px !important;
 }
 
 .dateSpan {
@@ -61,10 +62,10 @@
   margin-right: 5px;
 }
 
-.modal-body {
+/* .modal-body {
   height: 350px;
   overflow-y: scroll;
-}
+} */
 
 .teethDetails {
   background-color: #afdfcf;
